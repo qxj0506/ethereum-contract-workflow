@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "compile": "node scripts/compile.js",
+    "pretest": "npm run compile",
+    "test": "mocha tests",
+    "predeploy": "npm run compile",
+    "deploy": "node scripts/deploy.js"
   },
   "keywords": [],
   "author": "",
@@ -12,5 +16,9 @@
   "dependencies": {
     "fs-extra": "^6.0.1",
     "solc": "^0.4.24"
+  },
+  "devDependencies": {
+    "ganache-cli": "^6.1.6",
+    "mocha": "^5.2.0"
   }
 }
